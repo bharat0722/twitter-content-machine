@@ -1,0 +1,293 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --ink: #17202a;
+  --muted: #637083;
+  --line: #d8e0e8;
+  --accent: #0f766e;
+  --accent-dark: #0b5d56;
+  --warn: #b45309;
+  --shadow: 0 16px 40px rgba(23, 32, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.workspace {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.topbar p {
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.badge {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #eef7f5;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inputRow {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.inputRow label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.urlControls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+
+button,
+.download {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+.download:hover {
+  background: var(--accent-dark);
+}
+
+button:disabled,
+.download.disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.status {
+  min-height: 22px;
+  margin: 14px 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.status.error {
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.results {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.imagePanel .buttonGroup button,
+.postPanel .buttonGroup button {
+  background: #eef7f5;
+  color: var(--accent-dark);
+  border: 1px solid #b8d8d3;
+}
+
+.imagePanel .buttonGroup button:hover,
+.postPanel .buttonGroup button:hover {
+  background: #dcefeb;
+}
+
+.postPanel textarea {
+  width: 100%;
+  min-height: 220px;
+  padding: 16px;
+  border: 0;
+  resize: vertical;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-bottom: 1px solid var(--line);
+  background: #eef2f6;
+  overflow: hidden;
+}
+
+.imageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.imageFrame span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.imageNote,
+.sourcePanel {
+  line-height: 1.5;
+}
+
+.imageNote {
+  min-height: 54px;
+  padding: 14px 16px;
+  color: var(--muted);
+}
+
+.sourcePanel {
+  padding: 16px;
+}
+
+.sourcePanel h2 {
+  margin-bottom: 10px;
+}
+
+.sourcePanel ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+.sourcePanel li {
+  margin-bottom: 6px;
+}
+
+#originality {
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .app {
+    padding: 16px;
+  }
+
+  .topbar,
+  .urlControls,
+  .imageGrid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .panelHeader,
+  .buttonGroup {
+    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .badge {
+    width: max-content;
+  }
+}

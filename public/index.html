@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitter Content Machine</title>
+    <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="workspace">
+        <div class="topbar">
+          <div>
+            <h1>Twitter Content Machine</h1>
+            <p>Paste a public X post, review the rewrite, then copy or save what you like.</p>
+          </div>
+          <span class="badge">Review only</span>
+        </div>
+
+        <form id="generatorForm" class="inputRow">
+          <label for="postUrl">X/Twitter post URL</label>
+          <div class="urlControls">
+            <input id="postUrl" name="postUrl" type="url" placeholder="https://x.com/name/status/123..." required>
+            <button id="generateButton" type="submit">Generate</button>
+          </div>
+        </form>
+
+        <div id="status" class="status" role="status">Ready.</div>
+
+        <section class="results" aria-live="polite">
+          <div class="panel postPanel">
+            <div class="panelHeader">
+              <h2>Rewritten Post</h2>
+              <div class="buttonGroup">
+                <button id="regeneratePostButton" type="button" disabled>Regenerate Post</button>
+                <button id="copyButton" type="button" disabled>Copy</button>
+              </div>
+            </div>
+            <textarea id="postOutput" readonly placeholder="Your rewritten X post will appear here."></textarea>
+          </div>
+
+          <div class="imageGrid">
+            <article class="panel imagePanel">
+              <div class="panelHeader">
+                <h2>Image 1</h2>
+                <div class="buttonGroup">
+                  <button id="regenerateImage1Button" type="button" disabled>Regenerate Image 1</button>
+                  <a id="downloadImage1" class="download disabled" download="twitter-content-image-1.png">Save</a>
+                </div>
+              </div>
+              <div class="imageFrame">
+                <img id="image1" alt="">
+                <span id="emptyImage1">Generated image will appear here.</span>
+              </div>
+              <p id="image1Text" class="imageNote"></p>
+            </article>
+
+            <article class="panel imagePanel">
+              <div class="panelHeader">
+                <h2>Image 2</h2>
+                <div class="buttonGroup">
+                  <button id="regenerateImage2Button" type="button" disabled>Regenerate Image 2</button>
+                  <a id="downloadImage2" class="download disabled" download="twitter-content-image-2.png">Save</a>
+                </div>
+              </div>
+              <div class="imageFrame">
+                <img id="image2" alt="">
+                <span id="emptyImage2">Generated image will appear here.</span>
+              </div>
+              <p id="image2Text" class="imageNote"></p>
+            </article>
+          </div>
+
+          <div class="panel sourcePanel">
+            <h2>Source Insight</h2>
+            <ul id="insights"></ul>
+            <p id="originality"></p>
+          </div>
+
+          <div class="panel sourcePanel">
+            <h2>Research Used</h2>
+            <ul id="researchUsed"></ul>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/public/app.js"></script>
+  </body>
+</html>
